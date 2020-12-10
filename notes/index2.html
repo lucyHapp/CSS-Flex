@@ -1,0 +1,227 @@
+<!-- random notes taken in udemy course -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    h1 {
+      font-family: Verdana, Helvetica, sans-serif;
+      transition: text-shadow .5s, transform 5s;
+      /* transition-duration: 1s; */
+      /* transition-delay: 1s; */
+      /* transition-timing-function: cubic-bezier(.02, .97, .67, .32); */
+    }
+
+    h1:hover {
+      text-shadow: 3px 3px 10px red;
+      transform: scale(.5, .5);
+      /* transform: translate(-100px, 10px) */
+      /* transform: rotate(20deg); */
+      /* transform: scale(1, .5);  */
+      /* transform: skew(20deg, 10deg); */
+      /* transform: rotateY(180deg); */
+    }
+
+    h1::first-letter {
+      font-size: 70px;
+      color: red;
+    }
+
+    h1:hover::before {
+      content: "before ";
+      color: green;
+    }
+
+    h1::after {
+      content: " after";
+      font-size: 50px;
+      color: green;
+    }
+
+    p {
+      font-family: "Comic Sans MS", cursive;
+      ;
+    }
+
+    /* init state - style is applied before user visits */
+    a:link {}
+
+    /* after user visits link */
+    a:visited {}
+
+    /* immediate sibiling */
+    h1+p {}
+
+    /* all following sibilings */
+
+    h1~p {}
+
+    /* input with attribute type set to email */
+    input[type="email"] {}
+
+    .dropdown-content a {
+      display: none;
+    }
+
+    .dropdown:hover .dropdown-content a {
+      display: block;
+    }
+
+    .dropdown-content a:first-child {
+      color: red;
+    }
+
+    .dropdown-content a:last-child {
+      color: red;
+    }
+
+    /* :: = pseudo element  */
+    .dropdown-content a:nth-child(2) {
+      color: green;
+    }
+
+    /* pseudo class = : defines specific state */
+    /* :: = pseudo element  */
+
+
+
+    .container {
+      background-color: orange;
+      width: 700px;
+      height: 600px;
+      position: relative;
+    }
+
+    .box {
+      width: 350px;
+      height: 100px;
+      font-size: 25px;
+      color: white;
+    }
+
+    /* absolute is relative to closest non static parent element or body by defult and is not in flow of page */
+    .box-1 {
+      background-color: green;
+      position: absolute;
+      left: 200px;
+      top: 50px;
+    }
+
+    .box-2:hover {
+      transform: rotateY(180deg);
+    }
+
+    .box-2 {
+      background-image: linear-gradient(to right bottom, blue, gray, green);
+      /* add gradient to top of image */
+      /* background-image: linear-gradient(to right bottom, blue, gray, green), url(); */
+      transition: transform .2s;
+
+      z-index: 10;
+      position: relative;
+      /* position: relative;
+      top: 20px;
+      width: 500px;
+      height: 300px */
+    }
+
+    .box-3 {
+      background-color: grey;
+      position: relative;
+      animation-name: anim;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      /* animation-fill-mode: backwards;
+      animation-delay: 5s; */
+      /* timing-function delay iteration-count direction fill-mode; */
+    }
+
+    @keyframes anim {
+      0% {
+        left: 0;
+        top: 0;
+        background-color: green;
+      }
+
+      25% {
+        left: 500px;
+        top: 0px;
+        background-color: orange;
+      }
+
+      50% {
+        left: 0px;
+        top: 200px;
+        background-color: blue;
+      }
+
+      100% {
+        left: 0;
+        top: 0;
+        background-color: grey;
+      }
+    }
+
+    #flex-container {
+      background-color: green;
+      display: flex;
+      border: 1px solid black;
+      margin-top: 100px;
+      flex-wrap: wrap;
+
+    }
+
+    .item {
+      margin: 10px;
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* wrap needs to be unset if flex shrink is being used */
+    .item-1 {
+      /* flex-grow: 2; */
+      order: 1;
+    }
+
+    .item-3 {
+      /* flex-grow: 1; */
+      /* sets h or w along main flex axis */
+      /* align items - non main axis, justify content on main axis */
+      flex-basis: 200px;
+      order: -1
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dropdown">
+    <a href="#"> items</a>
+    <div class="dropdown-content">
+      <a href="#">one</a>
+      <a href="#">two</a>
+      <a href="#">three</a>
+    </div>
+    <h1>heading</h1>
+  </div>
+  <div class="container">
+    <div class="box box-1">box 1</div>
+    <div class="box box-2">box 2</div>
+    <div class="box box-3">box 3</div>
+  </div>
+  <div id="flex-container">
+    <div class="item item-1">a</div>
+    <div class="item item-2">b</div>
+    <div class="item item-3">c</div>
+    <div class="item item-4">d</div>
+    <div class="item item-5">e</div>
+  </div>
+</body>
+
+</html>
